@@ -14,27 +14,25 @@
     <button (click)="reset()">Reset</button>
     <table class="table table-bordered table-striped">
       <thead class="thead-dark">
-      <tr>
-        <th scope="col">#</th>
-        <th scope="col">Vorname</th>
-        <th scope="col">Nachname</th>
-        <th scope="col">Geburtsjahr</th>
-        <th scope="col">Stadt</th>
-        <th scope="col">Straße</th>
-      </tr>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Vorname</th>
+          <th scope="col">Nachname</th>
+          <th scope="col">Geburtsjahr</th>
+          <th scope="col">Stadt</th>
+          <th scope="col">Straße</th>
+        </tr>
       </thead>
       <tbody>
-      <tr *ngFor="let person of persons">
-        <td>{{ person.id }}</td>
-        <td>{{ person.firstName }}</td>
-        <td>{{ person.lastName }}</td>
-        <td>{{person.yearOfBirth}}</td>
-        <td>{{person.adresse.city}}</td>
-        <td>{{person.adresse.street}}</td>
-      </tr>
+        <tr *ngFor="let person of persons">
+          <td>{{ person.id }}</td>
+          <td>{{ person.firstName }}</td>
+          <td>{{ person.lastName }}</td>
+          <td>{{person.yearOfBirth}}</td>
+          <td>{{person.adress.city}}</td>
+          <td>{{person.adress.street}}</td>
+        </tr>
       </tbody>
     </table>
   </div>
 </div>
-
-
