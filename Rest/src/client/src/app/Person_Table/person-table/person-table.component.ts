@@ -22,21 +22,21 @@ export class PersonTableComponent implements OnInit
   // Benutze dafür den personService.
   ngOnInit(): void
   {
-
+    this.personService.findAll().subscribe(data => {this.persons=data;})
   }
 
   //Todo
   // Soll alle Personen anzeigen,welche zwischen dem Jahr 'searchMin' und 'searchMax' geboren wurden.
   findPerson(searchMin: number, searchMax: number)
   {
-
+    this.personService.findByAge(searchMin, searchMax).subscribe(data => {this.persons=data})
   }
 
   //Todo
   // Soll alle Personen anzeigen, welche aus einer Stadt kommen.
   searchByCity(searchCity: String)
   {
-
+    this.personService.findByCity(searchCity).subscribe(data=>{this.persons=data})
   }
 
   reset()

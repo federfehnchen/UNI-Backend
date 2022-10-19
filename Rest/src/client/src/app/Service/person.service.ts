@@ -11,7 +11,13 @@ import {Person} from "../Model/person";
 export class PersonService
 {
   personURL:string;
-  constructor(private http:HttpClient) {this.personURL='http://localhost:8080/persons'}
+  constructor(private http:HttpClient) {this.personURL='http://localhost:8080/'}
+
+  findAll(): Observable<Person[]> {return this.http.get<Person[]>(this.personURL+"findAll")};
+
+  findByAge(lower: number, higher: number): Observable<Person[]> {return this.http.get<Person[]>(this.personURL+"findByAge?lower="+lower+"&higher="+higher)}
+
+  findByCity(stadt: String): Observable<Person[]> {return this.http.get<Person[]>(this.personURL+"findByCity?city="+stadt)}
 }
 
 
