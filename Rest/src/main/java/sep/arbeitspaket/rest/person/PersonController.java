@@ -6,6 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import sep.arbeitspaket.rest.adress.Adress;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -14,6 +15,13 @@ public class PersonController
 {
     @Autowired
     private PersonRepository repo;
+
+    @GetMapping("/findAll")
+    public List<Person> findAll() {
+        List<Person> per =  new ArrayList<Person>();
+        repo.findAll().forEach(per::add);
+        return per;
+    }
 
     @GetMapping("/findById")
     public Person findById(@RequestParam(defaultValue = "1") long id) {
@@ -33,6 +41,11 @@ public class PersonController
     @GetMapping("/findByAge")
     public List<Person> findByAge(@RequestParam(defaultValue = "-1") int lower, @RequestParam(defaultValue = "-1") int higher) {
         return repo.sucheAlter(2022-lower, 2022-higher);
+    }
+
+    @GetMapping("findByBirthyear")
+    public List<Person> findByBirthyear(@RequestParam(defaultValue = "10") int BirthYear) {
+        return repo.findBybirthyear(BirthYear);
     }
 
     @PostMapping(value = "/addPerson", consumes = "application/json")

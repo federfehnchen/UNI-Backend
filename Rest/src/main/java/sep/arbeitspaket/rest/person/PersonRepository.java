@@ -13,6 +13,8 @@ public interface PersonRepository extends CrudRepository<Person, Long>
     Person findById(long id);
     List<Person> findByvorname(String vorname);
 
+    List<Person> findBybirthyear(int birthyear);
+
     @Query(value = "SELECT p from Person p inner join p.adressID ar where ar.city = :stadt")
     List<Person> suche(@Param(value = "stadt") String stadt);
 
