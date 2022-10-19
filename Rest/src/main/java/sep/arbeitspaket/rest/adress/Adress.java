@@ -13,8 +13,8 @@ public class Adress
     private Long adresseID;
     private String city;
     private String street;
-    @OneToOne(mappedBy = "adressID")
-    private Person person;
+    @OneToOne(mappedBy = "adresse")
+    Person person;
 
     public Long getID() {
         return adresseID;

@@ -15,8 +15,8 @@ public class Person
     private String nachname;
     private int birthyear;
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "adresseID", referencedColumnName = "adresseID")
-    private Adress adressID;
+    @JoinColumn(name = "adresseID")
+    private Adress adresse;
 
     public Long getID() {
         return ID;
@@ -50,19 +50,19 @@ public class Person
         this.birthyear = birthyear;
     }
 
-    public Adress getAdressID() {
-        return adressID;
+    public Adress getAdress() {
+        return adresse;
     }
 
-    public void setAdressID(Adress adressID) {
-        this.adressID = adressID;
+    public void setAdressID(Adress adress) {
+        this.adresse = adress;
     }
 
     public Person(String vorname, String nachname, int birthyear, Adress adresse) {
         this.vorname = vorname;
         this.nachname = nachname;
         this.birthyear = birthyear;
-        this.adressID = adresse;
+        this.adresse = adresse;
     }
 
     public Person() {}

@@ -15,7 +15,7 @@ public interface PersonRepository extends CrudRepository<Person, Long>
 
     List<Person> findBybirthyear(int birthyear);
 
-    @Query(value = "SELECT p from Person p inner join p.adressID ar where ar.city = :stadt")
+    @Query(value = "SELECT p from Person p inner join p.adresse ar where ar.city = :stadt")
     List<Person> suche(@Param(value = "stadt") String stadt);
 
     @Query(value = "SELECT p from Person p where (birthyear<= :lower and birthyear>= :upper)")
