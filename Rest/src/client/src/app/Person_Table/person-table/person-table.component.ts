@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Adress } from 'src/app/Model/adress';
 import {Person} from "../../Model/person";
 import {PersonService} from "../../Service/person.service";
 
@@ -22,7 +23,7 @@ export class PersonTableComponent implements OnInit
   // Benutze dafür den personService.
   ngOnInit(): void
   {
-    this.personService.findAll().subscribe(data => {this.persons=data;})
+    this.personService.findAll().subscribe(data => {console.log(data); this.persons = data;})
   }
 
   //Todo
